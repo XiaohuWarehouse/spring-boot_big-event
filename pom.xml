@@ -28,7 +28,7 @@
 
     <dependency>
       <groupId>org.mybatis.spring.boot</groupId>
-      <artifactId>mybatis-spring-boot-autoconfigure</artifactId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
       <version>3.0.0</version>
     </dependency>
 
@@ -42,6 +42,18 @@
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.2</version>
+      <scope>test</scope>
     </dependency>
 
   </dependencies>
