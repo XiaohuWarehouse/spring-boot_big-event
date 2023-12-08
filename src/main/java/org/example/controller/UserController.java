@@ -3,6 +3,7 @@ package org.example.controller;
 import org.example.pojo.Result;
 import org.example.pojo.User;
 import org.example.service.UserService;
+import org.example.utils.JwtUtil;
 import org.example.utils.Md5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.Pattern;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * projectName:SpringBoot_big-event
@@ -49,7 +52,11 @@ public class UserController {
         //判断密码是否正确 loginUser对象中的password是密文
         if (Md5Util.getMD5String(password).equals(loginUser.getPassword())) {
             //登录成功
-            return Result.success("JWT token令牌。。。");
+            Map<String, Object> claims = new HashMap<>();
+            claims.put("id",loginUser.getId());
+            claims.put("username",loginUser.getUsername());
+            String token = JwtUtil.genToken(claims);
+            return Result.success(token);
         }
         return Result.error("密码错误");
     }
