@@ -33,9 +33,7 @@ public class JwtTest {
 
     @Test
     public void testParse(){
-        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9" +
-                ".eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6InRvbSJ9LCJleHAiOjE3MDE5OTM5MzB9" +
-                ".JjAgwH9_F2jsVkWWNfOhwM9SZ1euQU44q_hkb76KJ-0";
+        String token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJ1c2VybmFtZSI6InRvbSJ9LCJleHAiOjE3MDMwMjE2NzN9.-umndkq9Ob2cWezrZNdBgfIP-XyzLPqZF-T3J58ITL0";
         JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256("xiaohu")).build();
         DecodedJWT decodedJWT = jwtVerifier.verify(token);
         Map<String, Claim> claims = decodedJWT.getClaims();
